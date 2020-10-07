@@ -1,0 +1,43 @@
+.header {
+  color: #fff;
+  background-color: #333;
+  height: 20vh;
+  text-align: center;
+  padding: 7vh 0px;
+}
+
+.header .title {
+  margin: 0;
+  padding-bottom: 6px;
+  font-size: 1.8em;
+  font-weight: 500;
+}
+
+.header .desc {
+  font-size: 14px;
+  font-weight: 300;
+  padding-bottom: 15px;
+}
+
+.header .searchBox {
+  width: 20%;
+  position: relative;
+  margin: auto;
+}
+
+.searchBox .searchInput {
+  height: 30px;
+  width: 100%;
+  padding-left: 30px;
+  position: absolute;
+  left: -15px;
+  font-size: 0.9em;
+}
+
+.searchBox .fas.fa-plus {
+  position: absolute;
+  left: -8px;
+  top: 9px;
+  color: darkgrey;
+  font-size: 20px;
+}

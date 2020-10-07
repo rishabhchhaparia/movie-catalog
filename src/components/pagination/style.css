@@ -1,0 +1,13 @@
+.pagination {
+  text-align: center;
+  padding: 20px;
+}
+
+.linkBtn {
+  background-color: transparent;
+  border: initial;
+  font-size: 1.2em;
+  color: #008cba;
+  text-decoration: underline;
+  cursor: pointer;
+}
