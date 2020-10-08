@@ -14,7 +14,7 @@ const PaginationComponent = ({ data, pageChangehandler }) => {
         null :
         <button className='linkBtn' onClick={() => pageChangehandler(data.currentPage + 1)}>Next</button>
     }
-    <div>Page Number: {data.currentPage}</div>
+    <div>Page: {data.currentPage}</div>
   </div>
 }
 

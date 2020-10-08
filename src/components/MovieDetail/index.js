@@ -3,6 +3,7 @@ import './style.css';
 import { useRouteMatch, Link } from 'react-router-dom'
 import { fetchMovieDetailUrl } from '../../apiConstant/api';
 import Loader from '../Loader';
+import { initCap } from '../../utils';
 
 const initialError = {
   hasError: false,
@@ -93,8 +94,8 @@ const MovieDetail = props => {
               <div><span className='label'>Major Cast: </span>{data.Actors}</div>
               <div><span className='label'>Release Date: </span>{data.Released}</div>
               <div><span className='label'>Duration: </span>{data.Runtime}</div>
-              <div><span className='label'>Type: </span>{data.Type}</div>
-              <div><span className='label'>Year: </span>{data.Year} {data.totalSeasons ? `${data.totalSeasons} seasons` : ''}</div>
+              <div><span className='label'>Type: </span>{initCap(data.Type)}</div>
+              <div><span className='label'>Year: </span>{data.Year} {data.totalSeasons ? `(${data.totalSeasons} seasons)` : ''}</div>
             </div>
           </div>
     }
