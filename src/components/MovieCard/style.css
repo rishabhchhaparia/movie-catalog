@@ -27,7 +27,7 @@
 }
 
 .details .poster:hover {
-  transform: scale(1.07);
+  transform: scale(1.2);
 	transition: ease-in 0.25s;
 }
 

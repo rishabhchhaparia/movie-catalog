@@ -1,0 +1,89 @@
+.noDataDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+}
+
+.movieDetail {
+  height: 95vh;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.movieData {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  height: inherit;
+  margin-top: 20px;
+  width: 95%;
+}
+
+.movieData .poster {
+  padding: 0px 20px;
+}
+
+.movie .poster>img {
+  height: 100%;
+  width: 100%;
+}
+
+.movieData .movieInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1;
+}
+
+.movieInfo .title {
+  font-size: 1.7em;
+  color: #2c2e3a;
+  margin-bottom: 0.5em;
+}
+
+.movieInfo .label {
+  font-weight: 500;
+  font-size: 0.9em;
+  color: gray;
+}
+
+.movieInfo>div {
+  font-size: 0.9em;
+  color: #2c2e3a;
+  margin: 5px 0px;
+}
+
+.backButton {
+  margin-left: 25px;
+  background-color: transparent;
+  border-color: transparent;
+  color: #008cba;
+  font-size: 1em;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .movieData {
+    flex-direction: column;
+    width: 95%;
+    margin-top: 20px;
+    justify-content: flex-start;
+  }
+  .movieData .poster {
+    width: 95%;
+    text-align: center;
+    margin: 0;
+  }
+  .movieData .poster>img {
+    width: 200px;
+    height: 307px;
+  }
+  .movieData .movieInfo {
+    width: 100%;
+    margin: 0;
+    padding-left: 10px;
+  }
+}

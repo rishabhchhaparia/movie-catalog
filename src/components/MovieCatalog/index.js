@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchDataUrl } from '../../apiConstant/api';
+import Loader from '../Loader';
 import MovieCard from '../MovieCard';
 import PaginationComponent from '../pagination';
 import SearchHeader from '../SearchHeader';
@@ -15,6 +16,8 @@ const intitialError = {
   hasError: false,
   msg: ''
 }
+
+const controller = new AbortController();
 
 const MovieCatalog = (props) => {
   const [movieList, setMovieList] = useState([]);
@@ -78,7 +81,7 @@ const MovieCatalog = (props) => {
         console.log('error: ', error);
         setError({
           hasError: true,
-          msg: <div>
+          msg: <div className='noDataDiv'>
             <div>Something went wrong!</div>
             <div>Please refresh the page or try after sometime if the issue persists</div>
           </div>
@@ -90,6 +93,7 @@ const MovieCatalog = (props) => {
   const handleSearchTextChange = event => {
     let val = event.target.value;
     setSearchVal(val);
+    controller.abort();
     updateSearchResult(val);
   }
 
@@ -101,9 +105,9 @@ const MovieCatalog = (props) => {
 
   const closeSearch = () => {
     if (searchCalled) {
-      setLoading(true);
       setSearchCalled(false);
       setSearchVal('')
+      setLoading(true);
       fetchData(1);
     }
   }
@@ -120,12 +124,12 @@ const MovieCatalog = (props) => {
 
   return <>
     <SearchHeader handleSearchTextChange={handleSearchTextChange} searchVal={searchVal} closeSearch={closeSearch}
-      searchCalled={searchCalled} />
+      searchCalled={searchCalled} totalResults={error.hasError ? null : paginationData.count} />
     <div className='movieCatalog'>
       {
         loading ?
           <div className="noDataDiv">
-            <div className='loader'></div>
+            <Loader />
           </div> :
           error.hasError === true ?
             error.msg :
@@ -133,7 +137,7 @@ const MovieCatalog = (props) => {
               <PaginationComponent data={paginationData} pageChangehandler={pageChangehandler} />
               <div className='movieList'>
                 {
-                  movieList.map(item => <MovieCard data={item} />)
+                  movieList.map(item => <MovieCard data={item} key={item.imdbID} />)
                 }
               </div>
             </>
