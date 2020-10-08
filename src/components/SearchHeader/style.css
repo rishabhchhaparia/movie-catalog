@@ -13,6 +13,10 @@
   font-weight: 500;
 }
 
+.title .fa-film {
+  padding-right: 10px;
+}
+
 .header .desc {
   font-size: 14px;
   font-weight: 300;
@@ -40,4 +44,13 @@
   top: 9px;
   color: darkgrey;
   font-size: 20px;
+}
+
+.searchBox .fa-times-circle {
+  color: #333;
+  position: absolute;
+  font-size: 20px;
+  cursor: pointer;
+  right: -13px;
+  top: 8px;
 }
