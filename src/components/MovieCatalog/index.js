@@ -39,7 +39,7 @@ const MovieCatalog = (props) => {
       .then(data => {
         if (data.Response === 'True') {
           let count = parseInt(data.totalResults);
-          let pages = Math.ceil(count / data.Search.length);
+          let pages = Math.ceil(count / 10);
           setMovieList(data.Search);
           setPaginationData({
             count: count,
